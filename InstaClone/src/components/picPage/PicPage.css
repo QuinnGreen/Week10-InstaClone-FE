@@ -1,0 +1,15 @@
+.fixedSizeImage {
+  width: 500px;
+  height: 700px;
+  object-fit: cover;
+  padding-bottom: 20px;
+}
+
+.imageColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.pic {
+  border-bottom: 1px double rgb(175, 172, 172);
+}
