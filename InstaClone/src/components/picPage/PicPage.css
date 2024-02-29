@@ -2,7 +2,16 @@
   width: 500px;
   height: 700px;
   object-fit: cover;
-  padding-bottom: 20px;
+}
+.iconImage {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  margin-left: 10px;
+  margin-top: 13px;
+  margin-right: 5px;
+  border: 1px double rgb(216, 11, 11);
+  border-radius: 100px;
 }
 
 .imageColumn {
@@ -12,4 +21,26 @@
 
 .pic {
   border-bottom: 1px double rgb(175, 172, 172);
+}
+
+.icon {
+  padding-left: 10px;
+  padding-right: 10px;
+  transition: color 0.3s ease;
+}
+
+.icon-bar {
+  text-align: left;
+  padding-left: 80px;
+}
+
+.icon:hover {
+  color: #c1c1c1;
+}
+
+.user {
+  text-align: left;
+  padding-left: 80px;
+  display: flex;
+  flex-direction: row;
 }

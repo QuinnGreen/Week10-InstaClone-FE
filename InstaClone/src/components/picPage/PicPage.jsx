@@ -2,6 +2,12 @@ import React, { useState, useEffect } from "react";
 import "./PicPage.css";
 import Navbar from "../navbar/navbar";
 import { faker } from "@faker-js/faker";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faHeart,
+  faComment,
+  faPaperPlane,
+} from "@fortawesome/free-regular-svg-icons";
 
 const PicPage = () => {
   const [images, setImages] = useState([]);
@@ -46,13 +52,41 @@ const PicPage = () => {
           const description = faker.lorem.sentence();
           return (
             <div className="pic" key={image.id}>
-              <p>{username}</p>
+              <div className="user">
+                <img
+                  className="iconImage"
+                  src={image.urls.small}
+                  alt={image.alt_description}
+                />
+                <p>
+                  <strong>{username}</strong>
+                </p>
+              </div>
               <img
                 className="fixedSizeImage"
                 src={image.urls.small}
                 alt={image.alt_description}
               />
-              <p> icons</p>
+              <p className="icon-bar">
+                <FontAwesomeIcon
+                  className="icon"
+                  icon={faHeart}
+                  size="2x"
+                  color="#333"
+                />
+                <FontAwesomeIcon
+                  className="icon"
+                  icon={faComment}
+                  size="2x"
+                  color="#333"
+                />
+                <FontAwesomeIcon
+                  className="icon"
+                  icon={faPaperPlane}
+                  size="2x"
+                  color="#333"
+                />
+              </p>
               <p>{likes} likes</p>
               <p>
                 <strong>{username}</strong> {description}{" "}
