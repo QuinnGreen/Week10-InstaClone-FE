@@ -31,7 +31,7 @@
 
 .icon-bar {
   text-align: left;
-  padding-left: 80px;
+  padding-left: 100px;
 }
 
 .icon:hover {
@@ -40,7 +40,39 @@
 
 .user {
   text-align: left;
-  padding-left: 80px;
+  padding-left: 90px;
   display: flex;
+  flex-direction: row;
+}
+
+.likes {
+  text-align: left;
+  padding-left: 100px;
+}
+
+.top-pic {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: row;
+}
+.top-pic > div {
+  width: calc(100% / 8);
+  box-sizing: border-box;
+  padding: 8px;
+}
+
+.topImage {
+  border: 1px double rgb(216, 11, 11);
+  border-radius: 100px;
+  width: 50px;
+  height: 50px;
+}
+
+.top-bar {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   flex-direction: row;
 }

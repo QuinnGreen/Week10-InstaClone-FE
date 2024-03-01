@@ -9,6 +9,12 @@ import {
   faPaperPlane,
 } from "@fortawesome/free-regular-svg-icons";
 
+const truncateUsername = (username, maxLength) => {
+  return username.length > maxLength
+    ? `${username.slice(0, maxLength)}...`
+    : username;
+};
+
 const PicPage = () => {
   const [images, setImages] = useState([]);
   const [imagesLoaded, setImagesLoaded] = useState(false);
@@ -44,12 +50,32 @@ const PicPage = () => {
   return (
     <div className="unsplashGallery">
       <Navbar />
-      <h1>Unsplash Gallery</h1>
+      <div className="top-pic">
+        {images.slice(0, 8).map((image) => {
+          const username = faker.internet.userName();
+          const truncatedUsername = truncateUsername(username, 10);
+
+          return (
+            <div key={image.id}>
+              <img
+                className="topImage"
+                src={image.urls.small}
+                alt={image.alt_description}
+              />
+              <p>
+                <small>{truncatedUsername}</small>
+              </p>
+            </div>
+          );
+        })}
+      </div>
       <div className="imageColumn">
         {images.map((image) => {
           const username = faker.internet.userName();
           const likes = Math.floor(Math.random() * 1000000) + 1;
           const description = faker.lorem.sentence();
+          const truncatedUsername = truncateUsername(username, 15);
+
           return (
             <div className="pic" key={image.id}>
               <div className="user">
@@ -59,7 +85,7 @@ const PicPage = () => {
                   alt={image.alt_description}
                 />
                 <p>
-                  <strong>{username}</strong>
+                  <strong>{truncatedUsername}</strong>
                 </p>
               </div>
               <img
@@ -87,9 +113,9 @@ const PicPage = () => {
                   color="#333"
                 />
               </p>
-              <p>{likes} likes</p>
+              <p className="likes">{likes} likes</p>
               <p>
-                <strong>{username}</strong> {description}{" "}
+                <strong>{truncatedUsername}</strong> {description}{" "}
               </p>
             </div>
           );
